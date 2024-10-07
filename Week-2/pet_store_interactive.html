@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <div id="app">
+            <h1 v-text="sitename"></h1>
+
+            <button v-on:click="showCheckOut">
+                <span v-if="cartItemCount > 0">{{ cartItemCount }}</span>
+                <span class="fas fa-cart-plus"></span>
+                Checkout
+            </button>
+
+            <div v-if="showProduct">
+                <figure>
+                    <img v-bind:src="product.image" width="200px">
+                </figure>
+    
+                <h2 v-text="product.title"></h2>
+                <p v-html="product.description"></p>
+                <p v-text="product.price + ' USD'"></p>
+                <p>Available stock: {{ product.availableInventory }}</p>
+            </div>
+
+            <button v-on:click="addToCart" v-if="canAddToCart">
+                Add To Cart
+            </button>
+            <button disabled="disabled" v-else>
+                Add to cart (Out of stock)
+            </button>
+        </div>
+    </main>
+
+    <script type="text/javascript">
+        let webstore = new Vue({
+            el: '#app',
+            data: {
+                sitename: "Vue.js Pet Depot",
+                showProduct: true,
+                product: {
+                    id: 1001,
+                    title: "Cat Food, 25Ib bag",
+                    description: "A 25 pound bag of <em>irresistible</em> organic goodness for your cat.",
+                    price: 20, // Updated to reflect a more realistic price
+                    image: "imgs/cat-food.png",
+                    availableInventory: 5
+                },
+                cart: [] // Initialize cart as an empty array
+            },
+            methods: {
+                addToCart: function() {
+                    // Only add to cart if there's available inventory
+                    if (this.canAddToCart) {
+                        this.cart.push(this.product.id); // Add the product ID to the cart
+                    }
+                },
+                showCheckOut: function() {
+                    this.showProduct = !this.showProduct; // Toggle the product view
+                }
+            },
+            computed: {
+                cartItemCount: function() {
+                    return this.cart.length; // Return the number of items in the cart
+                },
+                canAddToCart: function() {
+                    return this.product.availableInventory > this.cartItemCount; // Check inventory
+                },
+            }
+        });
+    </script>
+</body>
+</html>

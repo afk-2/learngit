@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/portfolio.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <title>Portfolio</title>
+</head>
+<body>
+    <header id="header">
+        <div id="left-section">
+            About Me
+        </div>
+        <div id="right-section">
+            <a class="links" href="#intro-section">Home</a>
+            <a class="links" href=#projects-section>Portfolio</a>
+            <a class="links" href="#inquiry-section">Ask Me</a>
+            <a class="links" href=#contact-section>Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <div id="App">
+            <section id="intro-section">
+                <div id="intro">
+                    <p id="intro-hi">Hi, I'm AFK!</p>
+                    <p id="description">
+                        A Full Stack Developer passionate about creating dynamic and efficient web applications. I love solving problems, building user-friendly interfaces, and working with the latest technologies.
+                    </p>
+                </div>
+                <div id="pfp-container">
+                    <img id="pfp" src="imgs/profile-icon.png">
+                </div>
+            </section>
+    
+            <section id="projects-section">
+                <p id="projects-header">Here are some of my projects showcasing my skills:</p>
+                <div id="projects"> 
+                    <div class="project-card">
+                        <a class="project-links" href="calculator_vue.html" target="_blank">
+                            <img class="project-thumbnail" src="imgs/calculator.png">
+                            <p class="project-title">Calculator</p>
+                            <p class="project-description">A calculator.</p>
+                        </a>
+                    </div>
+                    <div class="project-card">
+                        <a class="project-links" href="todo_list_vue.html" target="_blank">
+                            <img class="project-thumbnail" src="imgs/todo-list.png">
+                            <p class="project-title">To DO List</p>
+                            <p class="project-description">An app that makes a todo list.</p>
+                        </a>
+                    </div>
+                    <div class="project-card">
+                        <a class="project-links" href="https://afk-2.github.io/Fakemart/fakemart.html" target="_blank">
+                            <img class="project-thumbnail" src="imgs/Fakemart-logo.png">
+                            <p class="project-title">Fakemart</p>
+                            <p class="project-description">An E-commerce store offering a variety of products, including furniture, groceries, and electronics.</p>
+                        </a>
+                    </div>
+                </div>
+    
+            </section>
+
+            <section id="inquiry-section">
+                <div id="inquiry-section-intro">
+                    <h3 id="inquiry-title">Ask Me Anything!</h3>
+                    <p id="inquiry-description">I'm always happy to answer! Please fill the form below and ask your question.</p>
+                </div>
+
+                <form v-if="!submitted" id="query-form" @submit.prevent="handleSubmit">
+                    <div class="field-container">
+                        <label for="name">Name: </label>
+                        <input v-model="name" id="name" type="text" placeholder="Enter your name" required>
+                    </div>
+                    <div class="field-container">
+                        <label for="phone">Phone Number: </label>
+                        <input v-model="phoneNumber" id="phone" type="text" placeholder="Enter your phone number" required>
+                    </div>
+                    <div class="field-container">
+                        <label for="email">Email: </label>
+                        <input v-model="email" id="email" type="text" placeholder="Enter your email" required>
+                    </div>
+                    <div id="question-container">
+                        <label for="question">Your Question: </label>
+                        <br><br>
+                        <textarea v-model="question" id="question" cols="50" rows="5" placeholder="Enter your question" required></textarea>
+                    </div>
+                    <div id="button-wrapper">
+                        <button id="submit-question" type="submit">Submit</button>
+                    </div>
+                </form>
+
+                <!-- Message Section After Submission -->
+                <div v-if="submitted" id="inquiry-message-section">
+                    <p id="submit-message">Thank you for your inquiry! We will get back to you shortly.</p>
+                    <h4 id="your-details-title">Your Details:</h4>
+                    <div id="your-details">
+                        <p class="details-item"><span class="details-labels">Name: </span>{{ name }}</p>
+                        <p class="details-item"><span class="details-labels">Phone Number: </span>{{ phoneNumber }}</p>
+                        <p class="details-item"><span class="details-labels">Email: </span>{{ email }}</p>
+                        <p class="details-item"><span class="details-labels">Question: </span>{{ question }}</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer id="contact-section">
+        <h3 id="contact-title">Contact Me</h3>
+        <p class="contact">Phone Number: 1234567890</p>
+        <p class="contact">Email: mdxstudent@gmail.com</p>
+    </footer>
+
+    <script>
+        new Vue({
+          el: '#App',
+          data: {
+            name: '',
+            phoneNumber: '',
+            email: '',
+            question: '',
+            submitted: false
+          },
+          methods: {
+            handleSubmit() {
+              this.submitted = true;
+            }
+          }
+        });
+    </script>
+</body>
+</html>

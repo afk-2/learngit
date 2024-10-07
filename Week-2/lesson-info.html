@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <div id="app">
+            <figure>
+                <img v-bind:src="info.image">
+            </figure>
+            <h1 v-text="title"></h1>
+
+            <p v-text="info.subject"></p>
+            <p v-text="info.location"></p>
+            <p v-text="info.price"></p>
+        </div>
+    </main>
+
+    <script type="text/javascript">
+        let lesson = new Vue({
+            el: "#app",
+            data: {
+                title: "After School Club",
+                info: {
+                    subject: "Science",
+                    location: "block B 211",
+                    price: "price: 30",
+                    image: "imgs/cat.jpg"
+                }
+            }
+        }); 
+    </script>
+</body>
+</html>

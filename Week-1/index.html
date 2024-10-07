@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My first vue app</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+</head>
+<body>
+    <div id="app">
+        <p> {{  Name  }} </p>
+        <p> {{  Phone_no  }} </p>
+        <p> {{  Email  }} </p>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                Name: 'AFK',
+                Phone_no: "0543084664",
+                Email: "afksometimes@gmail.com"
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <button v-on:click="">
+            {{ cartItemCount }}
+            <span class="fas fa-cart-plus"></span>
+        </button>
+
+        <img v-bind:src="product.img" width="200px">
+        <p v-text="product.title"></p>
+        <p v-text="product.price"></p>
+
+        <button v-on:click="addToCart">
+            Add to cart
+        </button>
+    </div>
+    
+
+    <script type="text/javascript">
+        let app = new Vue({
+            el: "#app",
+            data: {
+                product: {
+                    id: 1,
+                    title: "smth",
+                    price: 20,
+                    img: "imgs/cat-food.png",
+                    availableInventory: 3
+                },
+                cart: []
+            },
+            methods: {
+                addToCart: function() {
+                    this.cart.push(this.product.id);
+                },
+                showCartItemCount: function() {
+                    this.cart.length || "";
+                }
+            },
+            computed: {
+                cartItemCount: function() {
+                    return this.cart.length || "";
+                }
+            }
+        });
+    </script>
+</body>
+</html>

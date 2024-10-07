@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+    <h1>Calculator</h1>
+
+    X <input type="text" id="x" v-model="x">
+    <br><br>
+    Y <input type="text" id="y" v-model="y">
+    <input type="button" value="add" id="addButton" v-on:click>
+    <br><br>
+    ----------------------------------------------
+    <br><br>
+    <p id="result">0</p>
+
+    <script>
+        let addButton = document.getElementById("addButton");
+        let displayResult = document.getElementById("result");
+        
+        addButton.onclick = () => {
+            let x = document.getElementById("x");
+            let y = document.getElementById("y");
+
+            let result = parseInt(x.value) + parseInt(y.value);
+            displayResult.innerText = result;
+        }
+    </script>
+</body>
+</html>

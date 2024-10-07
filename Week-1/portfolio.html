@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/portfolio.css">
+    <title>Portfolio</title>
+</head>
+<body>
+    <header id="header">
+        <div id="left-section">
+            About Me
+        </div>
+        <div id="right-section">
+            <a class="links" href="#intro-section">Home</a>
+            <a class="links" href=#projects-section>Portfolio</a>
+            <a class="links" href="#inquiry-section">Ask Me</a>
+            <a class="links" href=#contact-section>Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <div id="App">
+            <section id="intro-section">
+                <div id="intro">
+                    <p id="intro-hi">Hi, I'm AFK!</p>
+                    <p id="description">
+                        A Full Stack Developer passionate about creating dynamic and efficient web applications. I love solving problems, building user-friendly interfaces, and working with the latest technologies.
+                    </p>
+                </div>
+                <div id="pfp-container">
+                    <img id="pfp" src="imgs/profile-icon.png">
+                </div>
+            </section>
+    
+            <section id="projects-section">
+                <p id="projects-header">Here are some of my projects showcasing my skills:</p>
+                <div id="projects"> 
+                    <div class="project-card">
+                        <a class="project-links" href="
+                        C:\Users\F\OneDrive\Desktop\Web Development\SuperSimpleDev\HTML & CSS\Youtube.html
+                        ">
+                            <img class="project-thumbnail" src="imgs/cat.jpg">
+                            <p class="project-title">Amazon</p>
+                            <p class="project-description">An E-commerce website</p>
+                        </a>
+                    </div>
+                    <div class="project-card">
+                        <a class="project-links" href="todo_list.html">
+                            <img class="project-thumbnail" src="imgs/cat.jpg">
+                            <p class="project-title">Fakemart</p>
+                            <p class="project-description">An E-commerce website</p>
+                        </a>
+                    </div>
+                    <div class="project-card">
+                        <a class="project-links" href="todo_list.html">
+                            <img class="project-thumbnail" src="imgs/cat.jpg">
+                            <p class="project-title">Youtube</p>
+                            <p class="project-description">An E-commerce website</p>
+                        </a>
+                    </div>
+                </div>
+    
+            </section>
+
+            <section id="inquiry-section">
+                <div id="inquiry-section-intro">
+                    <h3 id="inquiry-title">Ask Me Anything!</h3>
+                    <p id="inquiry-description">I'm always happy to answer! Please fill the form below and ask your question.</p>
+                </div>
+
+                <form id="query-form">
+                    <div class="field-container">
+                        <label for="name">Name: </label>
+                        <input id="name" type="text" placeholder="Enter your name" required>
+                    </div>
+                    <div class="field-container">
+                        <label for="phone">Phone Number: </label>
+                        <input id="phone" type="text" placeholder="Enter your phone number" required>
+                    </div>
+                    <div class="field-container">
+                        <label for="email">Email: </label>
+                        <input id="email" type="text" placeholder="Enter your email" required>
+                    </div>
+                    <div id="question-container">
+                        <label for="question">Your Question: </label>
+                        <br><br>
+                        <textarea id="question" cols="50" rows="5" placeholder="Enter your question" required></textarea>
+                    </div>
+                    <div id="button-wrapper">
+                        <button id="submit-question" type="submit">Submit</button>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <footer id="contact-section">
+        <h3 id="contact-title">Contact Me</h3>
+        <p class="contact">Phone Number: 1234567890</p>
+        <p class="contact">Email: mdxstudent@gmail.com</p>
+    </footer>
+
+    <script src="scripts/portfolio.js"></script>
+</body>
+</html>

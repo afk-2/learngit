@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    <div id="App">
+    <h1>Calculator</h1>
+
+    X <input type="text" id="x" v-model="x">
+    <br><br>
+    Y <input type="text" id="y" v-model="y">
+    <input type="button" value="add" id="addButton" v-on:click="addButton">
+    <br><br>
+    ----------------------------------------------
+    <br><br>
+    <!-- <p id="result">{{ result }}</p> -->
+     <input v-model="result">
+</div>
+    <script>
+        let app = new Vue({
+            el: "#App",
+            data: { x: "",
+                y: "",
+                result: 0
+             },
+            methods: {
+                addButton(){
+                    
+                    this.result = parseInt(this.x) + parseInt(this.y);
+
+                    // console.log("test");
+
+                    // let x = document.getElementById("x");
+                    // let y = document.getElementById("y");
+                    // let displayResult = document.getElementById("result");
+
+                    // let result = parseInt(x.value) + parseInt(y.value);
+                    // displayResult.innerText = result;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
